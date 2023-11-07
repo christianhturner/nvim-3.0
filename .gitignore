@@ -8,4 +8,3 @@ foo.*
 data
 lua/plugins/barium.lua
 lazy-lock.json
-lazy-lock.json
