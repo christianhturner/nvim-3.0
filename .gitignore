@@ -7,3 +7,4 @@ foo.*
 *.log
 data
 lua/plugins/barium.lua
+lazy-lock.json
