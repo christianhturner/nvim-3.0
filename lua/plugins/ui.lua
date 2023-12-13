@@ -14,8 +14,8 @@ return {
                     }
                 )
             end
-            opts.left = opts.left or {}
-            table.insert(opts.left, {
+            opts.right = opts.right or {}
+            table.insert(opts.right, {
                 title = "Aerial",
                 ft = "aerial",
                 pinned = true,
@@ -26,7 +26,7 @@ return {
     -- arial
     {
         "stevearc/aerial.nvim",
-        opts = { open_automatic = false },
+        opts = { open_automatic = true },
     },
     -- arial - telescope
     {
