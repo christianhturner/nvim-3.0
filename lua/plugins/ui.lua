@@ -26,7 +26,7 @@ return {
     -- arial
     {
         "stevearc/aerial.nvim",
-        opts = { open_automatic = true },
+        opts = { open_automatic = false },
     },
     -- arial - telescope
     {
