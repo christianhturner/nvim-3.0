@@ -6,10 +6,18 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+local checkForWorkPlugins = function()
+    if io.open("lua/amazon") then
+        return { import = "amazon" }
+    end
+    return {}
+end
+
 require("lazy").setup({
     spec = {
         -- add LazyVim and import its plugins
         { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+        checkForWorkPlugins(),
         -- import any extras modules here
         -- { import = "lazyvim.plugins.extras.lang.typescript" },
         -- { import = "lazyvim.plugins.extras.lang.json" },

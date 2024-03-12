@@ -1,0 +1,3 @@
+[submodule "Cturnrq-neovim"]
+	path = lua/amazon
+	url = ssh://git.amazon.com:2222/pkg/Cturnrq-neovim
