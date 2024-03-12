@@ -62,11 +62,6 @@ return {
                 -- Color the symbol icons.
                 colored = true,
             })
-            return {
-                options = {
-                    theme = "dracula-nvim",
-                },
-            }
         end,
     },
 }
