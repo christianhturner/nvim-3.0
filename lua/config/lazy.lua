@@ -7,7 +7,8 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 local checkForWorkPlugins = function()
-    if io.open("lua/amazon") then
+    local amazon = vim.fn.stdpath("config") .. "lua/amazon"
+    if amazon then
         return { import = "amazon" }
     end
     return {}
@@ -17,7 +18,6 @@ require("lazy").setup({
     spec = {
         -- add LazyVim and import its plugins
         { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-        checkForWorkPlugins(),
         -- import any extras modules here
         -- { import = "lazyvim.plugins.extras.lang.typescript" },
         -- { import = "lazyvim.plugins.extras.lang.json" },
@@ -25,6 +25,7 @@ require("lazy").setup({
         -- import/override with your plugins
         { import = "plugins" },
         { import = "plugins.lang" },
+        checkForWorkPlugins(),
     },
     defaults = {
         -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
