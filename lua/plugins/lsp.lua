@@ -1,5 +1,15 @@
 return {
     {
+        "neovim/nvim-lspconfig",
+        opts = {
+            diagnostics = {
+                inlay_hints = {
+                    enabled = true,
+                },
+            },
+        },
+    },
+    {
         "nvimdev/lspsaga.nvim",
         event = "LspAttach",
         opts = {},
