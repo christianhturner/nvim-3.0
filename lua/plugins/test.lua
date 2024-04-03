@@ -1,4 +1,5 @@
 return {
+    --[[
     -- Jest
     {
         "David-Kunz/jester",
@@ -46,4 +47,6 @@ return {
             },
         },
     },
+    ]]
+    --
 }

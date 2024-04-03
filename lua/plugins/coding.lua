@@ -56,12 +56,12 @@ return {
             })
         end,
     },
-    -- If I opt to return to using Luasnip check this out https://github.com/L3MON4D3/LuaSnip/issues/525 Suggest using this line within the code
-    --luasnip.setup({
+    -- -- If I opt to return to using Luasnip check this out https://github.com/L3MON4D3/LuaSnip/issues/525 Suggest using this line within the code
+    -- luasnip.setup({
     -- region_check_events = "CursorHold,InsertLeave",
-    --    those are for removing deleted snippets, also a common problem
-    --delete_check_events = "TextChanged,InsertEnter",
-    --})
+    -- --    those are for removing deleted snippets, also a common problem
+    -- delete_check_events = "TextChanged,InsertEnter",
+    -- })
     -- Refactoring
     {
         "ThePrimeagen/refactoring.nvim",
