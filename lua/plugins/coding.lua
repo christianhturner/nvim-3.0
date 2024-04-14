@@ -1,7 +1,10 @@
 return {
     -- cmp
+    -- b356f2c is theh last working commit from this project. The Last commit that I attempted
+    -- to use was ce16de5.
     {
         "hrsh7th/nvim-cmp",
+        commit = "b356f2c",
         dependencies = {
             "hrsh7th/cmp-cmdline",
             "hrsh7th/cmp-nvim-lsp-document-symbol",
