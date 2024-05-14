@@ -4,7 +4,7 @@ return {
     -- to use was ce16de5.
     {
         "hrsh7th/nvim-cmp",
-        commit = "b356f2c",
+        -- commit = "b356f2c",
         dependencies = {
             "hrsh7th/cmp-cmdline",
             "hrsh7th/cmp-nvim-lsp-document-symbol",
@@ -27,11 +27,13 @@ return {
             cmp.mapping.preset.insert({
                 ["<C-u>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-d>"] = cmp.mapping.scroll_docs(4),
-                ["<c-y>"] = cmp.mapping.complete({ select = false }),
-                ["<c-Y>"] = cmp.mapping.confirm({
-                    behavior = cmp.ConfirmBehavior.Replace,
-                    select = false,
-                }),
+                ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+                ["<C-Space>"] = cmp.mapping.complete(),
+                -- ["<c-y>"] = cmp.mapping.complete({ select = true }),
+                -- ["<c-Y>"] = cmp.mapping.confirm({
+                --     behavior = cmp.ConfirmBehavior.Replace,
+                --     select = false,
+                -- }),
             })
             cmp.setup(opts)
             -- `/` cmdline setup.
