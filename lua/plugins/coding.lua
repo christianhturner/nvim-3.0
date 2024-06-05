@@ -1,66 +1,111 @@
 return {
+    -- {
+    --     "hrsh7th/nvim-cmp",
+    --     dependencies = {
+    --         "hrsh7th/cmp-emoji",
+    --     },
+    --     opts = function(_, opts)
+    --         table.insert(opts.sources, { name = "emoji" })
+    -- Investigate later
+    -- local cmp = require("cmp")
+    -- -- `/` cmdline setup.
+    -- cmp.setup.cmdline("/", {
+    --     mapping = cmp.mapping.preset.cmdline(),
+    --     sources = {
+    --         { name = "buffer" },
+    --     },
+    -- })
+    -- -- `:` cmdline setup.
+    -- cmp.setup.cmdline(":", {
+    --     mapping = cmp.mapping.preset.cmdline(),
+    --     sources = cmp.config.sources({
+    --         { name = "path" },
+    --     }, {
+    --         {
+    --             name = "cmdline",
+    --             option = {
+    --                 ignore_cmds = { "Man", "!" },
+    --             },
+    --         },
+    --     }),
+    -- })
+    -- return opts
+
+    --     local setup_cmdline = function ()
+    --     return {
+    --     require("cmp").setup.cmdline('/', {
+    --     sources = cmp.config.sources({
+    --         {name = 'nvim_lsp_document_symbol' }
+    --     }, {
+    --             { name = "buffer" }
+    --         })
+    -- })
+    --     }
+    --     end,
+    --     end,
+    -- },
     -- cmp
     -- b356f2c is theh last working commit from this project. The Last commit that I attempted
     -- to use was ce16de5.
-    {
-        "hrsh7th/nvim-cmp",
-        -- commit = "b356f2c",
-        dependencies = {
-            "hrsh7th/cmp-cmdline",
-            "hrsh7th/cmp-nvim-lsp-document-symbol",
-            "hrsh7th/cmp-nvim-lsp-signature-help",
-        },
-        opts = {
-            sources = {
-                { name = "nvim_lsp" },
-                { name = "buffer" },
-                -- { name = "luasnip" },
-                { name = "path" },
-                { name = "nvim_lsp_signature_help" },
-            },
-            completion = {
-                completeopt = "menu,menuone,noinsert",
-            },
-        },
-        config = function(_, opts)
-            local cmp = require("cmp")
-            cmp.mapping.preset.insert({
-                ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-                ["<C-d>"] = cmp.mapping.scroll_docs(4),
-                ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-                ["<C-Space>"] = cmp.mapping.complete(),
-                -- ["<c-y>"] = cmp.mapping.complete({ select = true }),
-                -- ["<c-Y>"] = cmp.mapping.confirm({
-                --     behavior = cmp.ConfirmBehavior.Replace,
-                --     select = false,
-                -- }),
-            })
-            cmp.setup(opts)
-            -- `/` cmdline setup.
-            cmp.setup.cmdline("/", {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources({
-                    { name = "nvim_lsp_document_symbol" },
-                }, {
-                    { name = "buffer" },
-                }),
-            })
-            -- `:` cmdline setup.
-            cmp.setup.cmdline(":", {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources({
-                    { name = "path" },
-                }, {
-                    {
-                        name = "cmdline",
-                        option = {
-                            ignore_cmds = { "Man", "!" },
-                        },
-                    },
-                }),
-            })
-        end,
-    },
+    -- {
+    --     "hrsh7th/nvim-cmp",
+    --     -- commit = "b356f2c",
+    --     dependencies = {
+    --         "hrsh7th/cmp-cmdline",
+    --         "hrsh7th/cmp-nvim-lsp-document-symbol",
+    --         "hrsh7th/cmp-nvim-lsp-signature-help",
+    --     },
+    --     opts = {
+    --         sources = {
+    --             { name = "nvim_lsp" },
+    --             { name = "buffer" },
+    --             -- { name = "luasnip" },
+    --             { name = "path" },
+    --             { name = "nvim_lsp_signature_help" },
+    --         },
+    --         completion = {
+    --             completeopt = "menu,menuone,noinsert",
+    --         },
+    --     },
+    --     config = function(_, opts)
+    --         local cmp = require("cmp")
+    --         cmp.mapping.preset.insert({
+    --             ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+    --             ["<C-d>"] = cmp.mapping.scroll_docs(4),
+    --             ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+    --             ["<C-Space>"] = cmp.mapping.complete(),
+    --             -- ["<c-y>"] = cmp.mapping.complete({ select = true }),
+    --             -- ["<c-Y>"] = cmp.mapping.confirm({
+    --             --     behavior = cmp.ConfirmBehavior.Replace,
+    --             --     select = false,
+    --             -- }),
+    --         })
+    --         cmp.setup(opts)
+    --         -- `/` cmdline setup.
+    --         cmp.setup.cmdline("/", {
+    --             mapping = cmp.mapping.preset.cmdline(),
+    --             sources = cmp.config.sources({
+    --                 { name = "nvim_lsp_document_symbol" },
+    --             }, {
+    --                 { name = "buffer" },
+    --             }),
+    --         })
+    --         -- `:` cmdline setup.
+    --         cmp.setup.cmdline(":", {
+    --             mapping = cmp.mapping.preset.cmdline(),
+    --             sources = cmp.config.sources({
+    --                 { name = "path" },
+    --             }, {
+    --                 {
+    --                     name = "cmdline",
+    --                     option = {
+    --                         ignore_cmds = { "Man", "!" },
+    --                     },
+    --                 },
+    --             }),
+    --         })
+    --     end,
+    -- },
     -- -- If I opt to return to using Luasnip check this out https://github.com/L3MON4D3/LuaSnip/issues/525 Suggest using this line within the code
     -- luasnip.setup({
     -- region_check_events = "CursorHold,InsertLeave",
