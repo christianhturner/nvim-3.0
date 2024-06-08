@@ -6,6 +6,7 @@
     "lazyvim.plugins.extras.dap.nlua",
     "lazyvim.plugins.extras.editor.dial",
     "lazyvim.plugins.extras.editor.harpoon2",
+    "lazyvim.plugins.extras.editor.inc-rename",
     "lazyvim.plugins.extras.editor.refactoring",
     "lazyvim.plugins.extras.formatting.prettier",
     "lazyvim.plugins.extras.lang.cmake",
@@ -15,6 +16,7 @@
     "lazyvim.plugins.extras.lang.kotlin",
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.python",
+    "lazyvim.plugins.extras.lang.sql",
     "lazyvim.plugins.extras.lang.svelte",
     "lazyvim.plugins.extras.lang.toml",
     "lazyvim.plugins.extras.lang.typescript",
@@ -24,10 +26,11 @@
     "lazyvim.plugins.extras.ui.edgy",
     "lazyvim.plugins.extras.ui.mini-animate",
     "lazyvim.plugins.extras.util.mini-hipatterns",
+    "lazyvim.plugins.extras.util.octo",
     "lazyvim.plugins.extras.util.project"
   ],
   "news": {
-    "NEWS.md": "5204"
+    "NEWS.md": "5950"
   },
   "version": 6
 }
