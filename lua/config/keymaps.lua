@@ -5,15 +5,13 @@ local map = vim.keymap.set
 -- local del = vim.keymap.del
 local wk = require("which-key")
 
-wk.register({
-    g = {
-        x = { "Open Link" },
-    },
-    K = {
-        name = "Hover Doc",
-        K = { "GoTo Hover Doc" },
-    },
-})
+-- wk.register({
+--   {
+--     { "K", group = "Hover Doc" },
+--     { "KK", desc = "GoTo Hover Doc" },
+--     { "gx", desc = "Open Link" },
+--   }
+-- })
 
 -- Resize windows using <Shift> arrow keys
 map("n", "<C-=>", "<C-w>+", { desc = "Increase Window Height" })
