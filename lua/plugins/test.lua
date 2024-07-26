@@ -1,27 +1,88 @@
-return {}
+---@diagnostic disable: missing-fields
+return {
+    {
+        "nvim-neotest/neotest",
+        dependencies = {
+            { "nvim-neotest/neotest-jest" },
+        },
+        ft = {
+            "javascript",
+            "javascriptreact",
+            "javascript.jsx",
+            "typescript",
+            "typescriptreact",
+            "typescript.tsx",
+        },
+        opts = {
+            adapters = {
+                ["neotest-jest"] = true,
+            },
+        },
+        config = function()
+            local jestConfig = {
+                "jest.config.ts",
+                "jest.config.js",
+                "jest.config.mjs",
+                "jest.config.cjs",
+                "jest.config.json",
+            }
+            require("neotest").setup({
+                adapters = {
+                    require("neotest-jest")({
+                        -- jestCommand = require("neotest-jest.jest-util").getJestCommand(vim.fn.expand "%:p:h"),
+                        jestConfigFile = function(file)
+                            local function findConfig(dir)
+                                local packageName =
+                                    string.match(dir, "([^/]+)/?$")
+                                -- check for Amazon Stuff
+                                if
+                                    vim.fn.filereadable(dir .. "/packageInfo")
+                                    == 1
+                                then
+                                    dir = dir .. "src/" .. packageName .. "/"
+                                end
+                                for _, configFile in ipairs(jestConfig) do
+                                    local fullPath = dir .. configFile
+                                    print(fullPath)
+                                    if vim.fn.filereadable(fullPath) == 1 then
+                                        return fullPath
+                                    end
+                                end
+                                return nil
+                            end
 
--- return {
---     { "nvim-neotest/neotest-plenary" },
---     {
---         "nvim-neotest/neotest",
---         dependencies = {
---             { "nvim-neotest/neotest-jest" },
---         },
---         opts = {
---             adapters = {
---                 "neotest-plenary",
---                 "neotest-jest",
---                 -- require("neotest-jest")({
---                 --     jestCommand = "npm test --",
---                 --     jestConfigFile = "custom.jest.config.ts",
---                 --     env = { CI = true },
---                 --     cwd = function(path)
---                 --         return vim.fn.getcwd()
---                 --     end,
---                 -- }),
---             },
---         },
---     },
+                            local configDir
+                            if string.find(file, "/packages/") then
+                                configDir = string.match(file, "(.-/[^/]+/)src")
+                            else
+                                configDir = vim.fn.getcwd()
+                            end
+
+                            local configPath = findConfig(configDir)
+                            if configPath then
+                                return configPath
+                            else
+                                error("No Jest config file found")
+                            end
+                        end,
+                        -- if string.find(file, "/packages/") then
+                        --     return string.match(file, "(.-/[^/]+/)src")
+                        --         .. jestConfig
+                        -- end
+                        --
+                        -- return vim.fn.getcwd() .. jestConfig
+                        -- cwd = function(path)
+                        --     if string.find(path, "/packages/") then
+                        --         return string.match(path, "(.-/[^/]+/)src")
+                        --     end
+                        --     return vim.fn.getcwd()
+                        -- end,
+                    }),
+                },
+            })
+        end,
+    },
+}
 --     --[[
 --     -- Jest
 --     {
