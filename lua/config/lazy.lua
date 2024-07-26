@@ -7,8 +7,8 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 local checkForWorkPlugins = function()
-    local amazon = vim.fn.stdpath("config") .. "lua/amazon"
-    if amazon then
+    local amazon_path = vim.fn.stdpath("config") .. "/lua/amazon"
+    if vim.fn.isdirectory(amazon_path) == 1 then
         return { import = "amazon" }
     end
     return {}
