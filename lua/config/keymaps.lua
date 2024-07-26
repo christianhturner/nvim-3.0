@@ -2,9 +2,17 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 local map = vim.keymap.set
--- local del = vim.keymap.del
+local del = vim.keymap.del
+
+del("n", "<leader>l")
+
 local wk = require("which-key")
 
+wk.add({
+    { "<leader>l", group = "Lazy & Plugin Utils" },
+    { "<leader>ll", "<cmd>Lazy<cr>", desc = "Lazy" },
+    { "<leader>lp", "<cmd>PrintLSPConfig<cr>", desc = "LSP Print Config" },
+})
 -- wk.register({
 --   {
 --     { "K", group = "Hover Doc" },

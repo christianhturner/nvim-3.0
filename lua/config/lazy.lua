@@ -54,3 +54,6 @@ require("lazy").setup({
         },
     },
 })
+
+-- Setup Utility function
+require("utils.plugins").setup()
