@@ -15,8 +15,6 @@ M.setup = function()
         end
     end
 
-    local function test() end
-
     -- Register the command
     vim.api.nvim_create_user_command("PrintLSPConfig", print_lsp_config, {})
 end

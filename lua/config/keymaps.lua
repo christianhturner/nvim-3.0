@@ -22,9 +22,9 @@ wk.add({
 -- })
 
 -- Resize windows using <Shift> arrow keys
-map("n", "<C-=>", "<C-w>+", { desc = "Increase Window Height" })
-map("n", "<C-->", "<C-w>-", { desc = "Decrease window height" })
-map("n", "<C-,>", "<C-w><", { desc = "Decrease window width" })
-map("n", "<C-.>", "<C-w>>", { desc = "Increase window width" })
+-- map("n", "<C-=>", "<C-w>+", { desc = "Increase Window Height" })
+-- map("n", "<C-->", "<C-w>-", { desc = "Decrease window height" })
+-- map("n", "<C-,>", "<C-w><", { desc = "Decrease window width" })
+-- map("n", "<C-.>", "<C-w>>", { desc = "Increase window width" })
 
 -- Disable default Lsp Commands for Lazy, replaced by lspsaga
