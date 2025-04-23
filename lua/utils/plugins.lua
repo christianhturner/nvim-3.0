@@ -4,15 +4,37 @@ M.setup = function()
     -- Function to print LSP config
     local function print_lsp_config()
         local configs = vim.lsp.get_clients()
+
+        vim.cmd("vnew")
+        local buf = vim.api.nvim_get_current_buf()
+        vim.api.nvim_buf_set_name(buf, "lsp-configs://info")
+
+        local lines = { "-- LSP Client Configurations", "" }
+
         if #configs == 0 then
-            print("No active LSP clients found.")
-            return
+            table.insert(lines, "No active LSP clients found.")
+            -- print("No active LSP clients found.")
+            -- return
+        else
+            for i, config in ipairs(configs) do
+                table.insert(lines, string.format("LSP %d: %s", i, config.name))
+                table.insert(lines, "-----------")
+
+                local config_dump = vim.inspect(config.config)
+                local config_lines = vim.split(config_dump, "\n")
+
+                for _, line in ipairs(config_lines) do
+                    table.insert(lines, line)
+                end
+
+                table.insert(lines, "")
+                table.insert(lines, "")
+            end
         end
-        for i, config in ipairs(configs) do
-            print(string.format("LSP %d: %s", i, config.name))
-            print(vim.inspect(config.config))
-            print("\n") -- Add a newline between configs for readability
-        end
+
+        vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+        vim.api.nvim_set_option_value("modifiable", false, { buf = buf })
+        vim.api.nvim_set_option_value("filetype", "lua", { buf = buf })
     end
 
     local function print_plugin_config()
