@@ -12,6 +12,7 @@ wk.add({
     { "<leader>l", group = "Lazy & Plugin Utils" },
     { "<leader>ll", "<cmd>Lazy<cr>", desc = "Lazy" },
     { "<leader>lp", "<cmd>PrintLSPConfig<cr>", desc = "LSP Print Config" },
+    { "<leader>lc", "<cmd>PrintPluginConfig<cr>", desc = "Print Plugin Config - Select" },
 })
 -- wk.register({
 --   {
