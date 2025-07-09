@@ -6,6 +6,9 @@ local del = vim.keymap.del
 
 del("n", "<leader>l")
 
+-- Load UI module for Amazon Q safely
+local ui_loaded, ui = pcall(require, "ui")
+
 local wk = require("which-key")
 
 wk.add({
@@ -13,6 +16,25 @@ wk.add({
     { "<leader>ll", "<cmd>Lazy<cr>", desc = "Lazy" },
     { "<leader>lp", "<cmd>PrintLSPConfig<cr>", desc = "LSP Print Config" },
     { "<leader>lc", "<cmd>PrintPluginConfig<cr>", desc = "Print Plugin Config - Select" },
+})
+
+-- Amazon Q keybinding
+wk.add({
+    { "<leader>a", group = "Amazon Tools" },
+    { "<leader>aq", function() 
+        -- Ensure UI module is loaded
+        if ui_loaded then
+            ui.toggle_amazonq() 
+        else
+            -- Try to load UI module again
+            local success, loaded_ui = pcall(require, "ui")
+            if success then
+                loaded_ui.toggle_amazonq()
+            else
+                vim.notify("Failed to load UI module for Amazon Q", vim.log.levels.ERROR)
+            end
+        end
+    end, desc = "Toggle Amazon Q" },
 })
 -- wk.register({
 --   {
