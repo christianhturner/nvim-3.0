@@ -24,12 +24,21 @@ wk.add({
     { "<leader>aq", function() 
         -- Ensure UI module is loaded
         if ui_loaded then
-            ui.toggle_amazonq() 
+            -- If terminal is hidden, show it; otherwise toggle
+            if ui.terminal_hidden and ui.terminal_buf and vim.api.nvim_buf_is_valid(ui.terminal_buf) then
+                ui.show_amazonq()
+            else
+                ui.toggle_amazonq()
+            end
         else
             -- Try to load UI module again
             local success, loaded_ui = pcall(require, "ui")
             if success then
-                loaded_ui.toggle_amazonq()
+                if loaded_ui.terminal_hidden and loaded_ui.terminal_buf and vim.api.nvim_buf_is_valid(loaded_ui.terminal_buf) then
+                    loaded_ui.show_amazonq()
+                else
+                    loaded_ui.toggle_amazonq()
+                end
             else
                 vim.notify("Failed to load UI module for Amazon Q", vim.log.levels.ERROR)
             end
