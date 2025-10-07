@@ -9,6 +9,8 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 local checkForWorkPlugins = function()
     local amazon_path = vim.fn.stdpath("config") .. "/lua/amazon"
     if vim.fn.isdirectory(amazon_path) == 1 then
+        require("amazon.utils.functions").configureBariumLsp()
+
         return { import = "amazon" }
     end
     return {}
