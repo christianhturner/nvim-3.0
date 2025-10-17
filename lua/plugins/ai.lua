@@ -1,4 +1,10 @@
 return {
+    {
+        "folke/sidekick.nvim",
+        opts = {
+            nes = { enabled = false },
+        },
+    },
     -- {
     --     "saghen/blink.cmp",
     --     version = not vim.g.lazyvim_blink_main and "*",
